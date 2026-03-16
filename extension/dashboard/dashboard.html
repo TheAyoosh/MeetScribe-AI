@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MeetScribe — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<!-- Sidebar Nav -->
+<nav class="dash-nav">
+  <div class="dash-nav-top">
+    <div class="dash-logo">
+      <div class="dash-logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" opacity="0.4"/>
+          <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="dash-logo-text">MeetScribe</span>
+    </div>
+    <nav class="dash-navlinks">
+      <a class="dash-navlink active" data-view="overview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.5"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor"/></svg>
+        Overview
+      </a>
+      <a class="dash-navlink" data-view="meetings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.5"/></svg>
+        Meetings
+      </a>
+      <a class="dash-navlink" data-view="analytics">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Analytics
+      </a>
+      <a class="dash-navlink" data-view="settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" fill="currentColor" opacity="0.5"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="1.5"/></svg>
+        Settings
+      </a>
+    </nav>
+  </div>
+  <div class="dash-nav-bottom">
+    <div class="dash-ai-badge">
+      <div class="dash-ai-dot"></div>
+      <span>AI Models Ready</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="dash-main">
+
+  <!-- ── OVERVIEW ── -->
+  <div class="dash-view active" id="view-overview">
+    <div class="dash-view-header">
+      <div>
+        <h1 class="dash-view-title">Overview</h1>
+        <p class="dash-view-sub">Your meeting intelligence at a glance</p>
+      </div>
+      <button class="dash-btn-primary" onclick="openMeetTab()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        New Meeting
+      </button>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="dash-stats-row" id="dash-stats-row">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(0,212,255,0.1);color:#00D4FF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="dash-stat-value" id="stat-meetings">0</div>
+        <div class="dash-stat-label">Total Meetings</div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(78,205,196,0.1);color:#4ECDC4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="dash-stat-value" id="stat-words">0</div>
+        <div class="dash-stat-label">Words Transcribed</div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(124,111,255,0.1);color:#7C6FFF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="dash-stat-value" id="stat-hours">0h</div>
+        <div class="dash-stat-label">Meeting Hours</div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(255,230,109,0.1);color:#FFE66D">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polyline points="9 11 12 14 22 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="dash-stat-value" id="stat-actions">0</div>
+        <div class="dash-stat-label">Action Items</div>
+      </div>
+    </div>
+
+    <!-- Recent + Quick Access -->
+    <div class="dash-two-col">
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <h3>Recent Meetings</h3>
+          <button class="dash-link-btn" data-view="meetings">See all →</button>
+        </div>
+        <div id="overview-recent-list">
+          <div class="dash-empty-msg">No meetings recorded yet.<br>Open Google Meet and start recording.</div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div class="dash-card-header">
+          <h3>Tone Distribution</h3>
+          <span class="dash-label-muted">All meetings</span>
+        </div>
+        <div class="dash-tone-dist" id="dash-tone-dist">
+          <div class="dash-empty-msg" style="padding:30px 0">No data yet</div>
+        </div>
+        <div class="dash-setup-hint" id="setup-hint" style="display:none">
+          <a href="#" class="dash-setup-link" data-view="settings">Configure AI keys →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform breakdown -->
+    <div class="dash-card" style="margin-top:16px">
+      <div class="dash-card-header">
+        <h3>Platform Breakdown</h3>
+      </div>
+      <div class="dash-platform-grid" id="dash-platform-grid">
+        <div class="dash-empty-msg">No data yet</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MEETINGS ── -->
+  <div class="dash-view" id="view-meetings">
+    <div class="dash-view-header">
+      <div>
+        <h1 class="dash-view-title">All Meetings</h1>
+        <p class="dash-view-sub" id="meetings-count-label">0 meetings</p>
+      </div>
+      <div class="dash-header-controls">
+        <input type="text" class="dash-search" id="meetings-search" placeholder="Search meetings…">
+        <select class="dash-select" id="meetings-filter">
+          <option value="all">All Platforms</option>
+          <option value="Google Meet">Google Meet</option>
+          <option value="Zoom">Zoom</option>
+          <option value="Microsoft Teams">Teams</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="meetings-list-container">
+      <div class="dash-empty-msg">No meetings recorded yet.</div>
+    </div>
+  </div>
+
+  <!-- ── MEETING DETAIL ── -->
+  <div class="dash-view" id="view-meeting-detail">
+    <div class="dash-view-header">
+      <button class="dash-back-btn" data-view="meetings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Back
+      </button>
+      <div class="dash-detail-actions">
+        <button class="dash-btn-outline" id="detail-export-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Export
+        </button>
+        <button class="dash-btn-danger" id="detail-delete-btn">Delete</button>
+      </div>
+    </div>
+    <div id="meeting-detail-content"></div>
+  </div>
+
+  <!-- ── ANALYTICS ── -->
+  <div class="dash-view" id="view-analytics">
+    <div class="dash-view-header">
+      <div>
+        <h1 class="dash-view-title">Analytics</h1>
+        <p class="dash-view-sub">Patterns across all your meetings</p>
+      </div>
+    </div>
+    <div class="dash-analytics-grid" id="dash-analytics-grid">
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Meetings per Week</h3></div>
+        <canvas id="meetings-chart" height="120"></canvas>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Average Tone by Day</h3></div>
+        <canvas id="tone-chart" height="120"></canvas>
+      </div>
+      <div class="dash-card dash-full-width">
+        <div class="dash-card-header"><h3>Speaker Talk Time Distribution</h3></div>
+        <div id="speaker-dist-chart" class="dash-speaker-dist"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SETTINGS ── -->
+  <div class="dash-view" id="view-settings">
+    <div class="dash-view-header">
+      <div>
+        <h1 class="dash-view-title">Settings</h1>
+        <p class="dash-view-sub">Configure MeetScribe AI</p>
+      </div>
+    </div>
+
+    <div class="dash-settings-grid">
+      <!-- API Keys -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3> API Keys</h3></div>
+        <div class="dash-form-group">
+          <label class="dash-form-label">
+            HuggingFace API Token
+            <a href="https://huggingface.co/settings/tokens" target="_blank" class="dash-link">Get free token →</a>
+          </label>
+          <p class="dash-form-hint">Used for Whisper & Parakeet transcription. Free tier: 30,000 tokens/month</p>
+          <input type="password" class="dash-input" id="s-hf-token" placeholder="hf_xxxxxxxxxxxxxxxxxxxx">
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-form-label">
+            Google Gemini API Key
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="dash-link">Get free key →</a>
+          </label>
+          <p class="dash-form-hint">Used for tone analysis & summaries. Free: 15 RPM, 1M tokens/day</p>
+          <input type="password" class="dash-input" id="s-gemini-key" placeholder="AIzaSy...">
+        </div>
+      </div>
+
+      <!-- Model Config -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3> AI Models</h3></div>
+        <div class="dash-form-group">
+          <label class="dash-form-label">Transcription Model</label>
+          <select class="dash-select-full" id="s-model">
+            <option value="whisper-base">Whisper Base — Fast, English-focused (openai/whisper-base)</option>
+            <option value="whisper-small">Whisper Small — Balanced accuracy (openai/whisper-small)</option>
+            <option value="parakeet">Parakeet TDT 0.6B — NVIDIA, best accuracy (nvidia/parakeet-tdt-0.6b-v2)</option>
+          </select>
+          <p class="dash-form-hint">Parakeet is best for meeting audio. Whisper works for all languages.</p>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-form-label">Primary Language</label>
+          <select class="dash-select-full" id="s-lang">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="zh">Chinese</option>
+            <option value="ja">Japanese</option>
+            <option value="pt">Portuguese</option>
+          </select>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-form-label">Transcription Mode</label>
+          <div class="dash-radio-group">
+            <label class="dash-radio-label">
+              <input type="radio" name="tmode" value="hf" id="s-mode-hf"> HuggingFace API (recommended)
+            </label>
+            <label class="dash-radio-label">
+              <input type="radio" name="tmode" value="webspeech" id="s-mode-ws" checked> Web Speech API (no token needed)
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Behaviour -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3> Behaviour</h3></div>
+        <div class="dash-toggle-group">
+          <div class="dash-toggle-item">
+            <div>
+              <div class="dash-toggle-title">Tone Analysis</div>
+              <div class="dash-toggle-desc">Analyze emotion & tone for each speaker segment</div>
+            </div>
+            <label class="dash-switch">
+              <input type="checkbox" id="s-tone" checked>
+              <span class="dash-slider"></span>
+            </label>
+          </div>
+          <div class="dash-toggle-item">
+            <div>
+              <div class="dash-toggle-title">Auto-detect Meeting Start</div>
+              <div class="dash-toggle-desc">Automatically show sidebar when joining a meeting</div>
+            </div>
+            <label class="dash-switch">
+              <input type="checkbox" id="s-autostart" checked>
+              <span class="dash-slider"></span>
+            </label>
+          </div>
+          <div class="dash-toggle-item">
+            <div>
+              <div class="dash-toggle-title">Auto-detect Action Items</div>
+              <div class="dash-toggle-desc">Highlight commitments and follow-ups automatically</div>
+            </div>
+            <label class="dash-switch">
+              <input type="checkbox" id="s-actions" checked>
+              <span class="dash-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="dash-form-group" style="margin-top:16px">
+          <label class="dash-form-label">Sidebar Position</label>
+          <div class="dash-radio-group">
+            <label class="dash-radio-label"><input type="radio" name="pos" value="right" id="s-pos-r" checked> Right</label>
+            <label class="dash-radio-label"><input type="radio" name="pos" value="left" id="s-pos-l"> Left</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3> Data Management</h3></div>
+        <div class="dash-form-group">
+          <p class="dash-form-hint">All data is stored locally in your browser. Nothing is sent to external servers except the audio chunks sent to HuggingFace or Gemini APIs when you've configured the keys.</p>
+        </div>
+        <div class="dash-btn-row">
+          <button class="dash-btn-outline" id="s-export-all">Export All Data</button>
+          <button class="dash-btn-danger" id="s-clear-all">Clear All Meetings</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-save-row">
+      <button class="dash-btn-primary" id="s-save">Save Settings</button>
+      <span class="dash-save-msg" id="s-save-msg"></span>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
