@@ -123,6 +123,7 @@ async function handleStartCapture(msg, sender, sendResponse) {
     await chrome.storage.local.set({ [STORAGE_KEYS.ACTIVE_MEETING]: activeMeeting });
 
     // Use tabCapture to get the tab's audio stream
+    // Use tabCapture to get the tab's audio stream
     // In MV3, this requires offscreen document
     await ensureOffscreenDocument();
     
@@ -165,68 +166,35 @@ async function handleStopCapture(sendResponse) {
 async function handleTranscribeChunk(msg, sendResponse) {
   try {
     const settings = await getSettingsData();
-    const { audioBlob, speakerHint } = msg;
-
-    // Use HuggingFace Inference API with parakeet-tdt or whisper
-    // Free tier: nvidia/parakeet-tdt-0.6b-v2 or openai/whisper-base
     const hfToken = settings.hfToken;
+    if (!hfToken) return sendResponse({ success: false });
+
     const modelId = settings.model === 'parakeet' 
       ? 'nvidia/parakeet-tdt-0.6b-v2'
       : 'openai/whisper-base';
 
-    let transcription = '';
+    const audioData = new Uint8Array(msg.audioArray);
 
-    if (hfToken) {
-      // Real HuggingFace Inference API call
-      const response = await fetch(
-        `https://api-inference.huggingface.co/models/${modelId}`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${hfToken}`,
-            'Content-Type': 'audio/wav'
-          },
-          body: audioBlob
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        transcription = result.text || result[0]?.text || '';
-      } else {
-        throw new Error(`HF API error: ${response.status}`);
+    const response = await fetch(
+      `https://api-inference.huggingface.co/models/${modelId}`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${hfToken}`,
+          'Content-Type': msg.mimeType || 'audio/webm'
+        },
+        body: audioData
       }
+    );
+
+    if (response.ok) {
+      const result = await response.json();
+      const transcription = result.text || result[0]?.text || '';
+      sendResponse({ success: true, text: transcription });
     } else {
-      // Fallback: Web Speech API (handled in content script)
-      transcription = msg.webSpeechFallback || '[Transcription pending - add HF token in settings]';
+      console.error('[MeetScribe] HF API Error:', response.status, await response.text());
+      sendResponse({ success: false, error: 'HF API Error' });
     }
-
-    // Update active meeting transcript
-    if (activeMeeting && transcription) {
-      const entry = {
-        id: generateId(),
-        text: transcription,
-        speaker: speakerHint || 'Unknown',
-        timestamp: Date.now(),
-        confidence: 0.9
-      };
-      
-      activeMeeting.transcript.push(entry);
-      
-      // Broadcast to sidebar
-      broadcastToSidebar({
-        type: 'TRANSCRIPT_UPDATE',
-        entry,
-        meetingId: activeMeeting.id
-      });
-
-      // Trigger tone analysis asynchronously
-      if (settings.showToneAnalysis) {
-        analyzeToneAsync(entry, settings);
-      }
-    }
-
-    sendResponse({ success: true, text: transcription });
   } catch (err) {
     console.error('[MeetScribe] Transcription error:', err);
     sendResponse({ success: false, error: err.message });
@@ -491,3 +459,4 @@ async function appendTranscriptEntry(entry) {
     await saveMeetingData(activeMeeting);
   }
 }
+

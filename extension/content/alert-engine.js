@@ -545,11 +545,19 @@ Is this new statement clearly off-topic from the meeting? Reply with only: YES o
           <div style="font-weight:700;font-size:11px;color:${color};margin-bottom:2px;text-transform:uppercase;letter-spacing:0.5px">${title}</div>
           <div style="color:#9CA3AF;line-height:1.4">${message}</div>
         </div>
-        <button style="background:none;border:none;color:#6B7280;cursor:pointer;font-size:14px;padding:0;flex-shrink:0;line-height:1" onclick="this.closest('[data-ms-alert]').remove()"></button>
+        <button class="ms-alert-close-btn" style="background:none;border:none;color:#6B7280;cursor:pointer;font-size:14px;padding:0;flex-shrink:0;line-height:1"></button>
       </div>
     `;
 
     alert.dataset.msAlert = type;
+
+    const closeBtn = alert.querySelector('.ms-alert-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        alert.remove();
+      });
+    }
 
     // Add dismiss animation CSS if not added yet
     if (!document.getElementById('ms-alert-styles')) {

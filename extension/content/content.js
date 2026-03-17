@@ -69,22 +69,22 @@
     if (!s?.hfToken || s.transcriptionMode === 'webspeech') return;
 
     try {
-      const model = s.model === 'parakeet' ? 'nvidia/parakeet-tdt-0.6b-v2'
-        : s.model === 'whisper-small' ? 'openai/whisper-small' : 'openai/whisper-base';
-
-      const res = await fetch(`https://api-inference.huggingface.co/models/${model}`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${s.hfToken}`, 'Content-Type': mimeType || 'audio/webm' },
-        body: new Blob([buffer], { type: mimeType })
+      chrome.runtime.sendMessage({
+        type: 'TRANSCRIBE_CHUNK',
+        audioArray: Array.from(new Uint8Array(buffer)),
+        mimeType: mimeType || 'audio/webm'
+      }, (response) => {
+        if (chrome.runtime.lastError) return;
+        if (response && response.success && response.text) {
+          const text = response.text.trim();
+          if (text.length > 1) {
+            addEntry(text, speaker, timestamp, 'hf');
+          }
+        }
       });
-
-      if (res.status === 503) { setTimeout(() => handleChunk(d), 5000); return; }
-      if (!res.ok) return;
-
-      const j = await res.json();
-      const text = (j.text || j[0]?.text || '').trim();
-      if (text.length > 1) addEntry(text, speaker, timestamp, 'hf');
-    } catch (e) { /* silent — network errors are expected */ }
+    } catch (e) {
+      console.error('[MeetScribe] Failed to queue chunk for transcription:', e);
+    }
   }
 
   // ── Speaker fingerprint events ────────────────────────────────────────────
@@ -311,7 +311,7 @@
         `<div class="ms-tone-pill" id="tone-${entry.id}"></div>` +
         `<span class="ms-entry-time">${time}</span>` +
       `</div>` +
-      `<div class="ms-entry-text">${esc(text)}</div>`;
+      `<div class="ms-entry-text">${esc(entry.text)}</div>`;
 
     // Insert before interim node if it exists
     if (interimNode && interimNode.parentNode === list) {
@@ -324,39 +324,7 @@
     if (atBottom) list.scrollTop = list.scrollHeight;
   }
 
-  // Fix: renderEntry uses `text` from closure — use entry.text directly
-  function renderEntry(entry) {
-    const list = document.getElementById('ms-transcript-list');
-    if (!list) return;
-    list.querySelector('.ms-empty-state')?.remove();
 
-    const time = new Date(entry.timestamp).toLocaleTimeString([], {
-      hour: '2-digit', minute: '2-digit', second: '2-digit'
-    });
-
-    const el = document.createElement('div');
-    el.className = 'ms-entry';
-    el.id = `entry-${entry.id}`;
-    el.style.setProperty('--speaker-color', entry.speaker.color);
-
-    el.innerHTML =
-      `<div class="ms-entry-header">` +
-        `<div class="ms-speaker-dot" style="background:${entry.speaker.color}"></div>` +
-        `<span class="ms-speaker-name" style="color:${entry.speaker.color}">${esc(entry.speaker.name)}</span>` +
-        `<div class="ms-tone-pill" id="tone-${entry.id}"></div>` +
-        `<span class="ms-entry-time">${time}</span>` +
-      `</div>` +
-      `<div class="ms-entry-text">${esc(entry.text)}</div>`;
-
-    if (interimNode?.parentNode === list) {
-      list.insertBefore(el, interimNode);
-    } else {
-      list.appendChild(el);
-    }
-
-    const atBottom = list.scrollHeight - list.scrollTop - list.clientHeight < 80;
-    if (atBottom) list.scrollTop = list.scrollHeight;
-  }
 
   function updateTonePill(id, t) {
     const pill = document.getElementById(`tone-${id}`);
@@ -648,6 +616,12 @@
     const sb = document.createElement('div');
     sb.id = 'meetscribe-sidebar';
     sb.className = 'meetscribe-sidebar meetscribe-hidden';
+    
+    chrome.storage.local.get('meetscribe_settings', (res) => {
+      const s = res.meetscribe_settings || {};
+      if (s.darkMode === false) sb.classList.add('light-mode');
+    });
+
     sb.innerHTML = buildSidebarHTML();
     document.body.appendChild(sb);
 
@@ -952,9 +926,31 @@
   }
 
   // ── Background messages ───────────────────────────────────────────────────
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'local' && changes.meetscribe_settings) {
+      const s = changes.meetscribe_settings.newValue || {};
+      cachedSettings = s;
+      const sb = document.getElementById('meetscribe-sidebar');
+      if (sb) {
+        if (s.darkMode === false) sb.classList.add('light-mode');
+        else sb.classList.remove('light-mode');
+      }
+    }
+  });
+
   chrome.runtime.onMessage.addListener(msg => {
     if (msg.type === 'TOGGLE_SIDEBAR') toggleSidebar();
     if (msg.type === 'OPEN_SETTINGS') openSettings();
+    if (msg.type === 'TRANSCRIPT_UPDATE') {
+      // Receive transcription done by background script via offscreen document
+      const { text, speaker, timestamp } = msg.entry || {};
+      if (text) {
+        // Resolve speaker object
+        const sp = speakers.get((speaker || '').replace('speaker_', 'sp_')) 
+                   || getOrCreate(speaker || 'Unknown');
+        addEntry(text, sp, timestamp, 'hf-bg');
+      }
+    }
   });
 
   // ── Init ──────────────────────────────────────────────────────────────────

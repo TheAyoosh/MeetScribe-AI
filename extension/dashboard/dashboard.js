@@ -25,12 +25,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function loadAll() {
+  const { [KEYS.SETTINGS]: s = {} } = await chrome.storage.local.get(KEYS.SETTINGS);
+  applyTheme(s.darkMode !== false);
+
   const { [KEYS.MEETINGS]: meetings = [] } = await chrome.storage.local.get(KEYS.MEETINGS);
   allMeetings = meetings;
   renderOverview();
   renderMeetingsList();
   renderAnalytics();
-  loadSettingsForm();
+  loadSettingsForm(s);
 }
 
 // ─── Nav ──────────────────────────────────────────────────────────────────────
@@ -42,6 +45,7 @@ function bindNav() {
       switchView(el.dataset.view);
     });
   });
+  document.getElementById('btn-new-meeting')?.addEventListener('click', openMeetTab);
 }
 
 function switchView(viewId) {
@@ -323,10 +327,17 @@ function showExportOptions(meeting) {
   menu.innerHTML = `
     <div style="font-size:14px;font-weight:700;margin-bottom:12px">Export Meeting</div>
     ${formats.map(([fmt, label]) => `
-      <button onclick="exportMeeting('${meeting.id}','${fmt}')" style="display:block;width:100%;padding:9px 12px;margin-bottom:5px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;color:var(--text-dim);font-size:13px;cursor:pointer;text-align:left;font-family:var(--font);transition:all 0.15s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">${label}</button>
+      <button class="export-format-btn" data-fmt="${fmt}" style="display:block;width:100%;padding:9px 12px;margin-bottom:5px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;color:var(--text-dim);font-size:13px;cursor:pointer;text-align:left;font-family:var(--font);transition:all 0.15s">${label}</button>
     `).join('')}
-    <button onclick="this.parentElement.remove()" style="display:block;width:100%;padding:8px;background:transparent;border:none;color:var(--text-muted);font-size:12px;cursor:pointer;margin-top:4px;font-family:var(--font)">Cancel</button>
+    <button class="export-cancel-btn" style="display:block;width:100%;padding:8px;background:transparent;border:none;color:var(--text-muted);font-size:12px;cursor:pointer;margin-top:4px;font-family:var(--font)">Cancel</button>
   `;
+
+  menu.querySelectorAll('.export-format-btn').forEach(btn => {
+    btn.addEventListener('click', () => exportMeeting(meeting.id, btn.dataset.fmt));
+    btn.addEventListener('mouseover', () => btn.style.borderColor = 'var(--accent)');
+    btn.addEventListener('mouseout', () => btn.style.borderColor = 'var(--border)');
+  });
+  menu.querySelector('.export-cancel-btn').addEventListener('click', () => menu.remove());
 
   const overlay = document.createElement('div');
   overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998';
@@ -471,13 +482,17 @@ function renderSpeakerDistribution() {
 
 // ─── Settings ─────────────────────────────────────────────────────────────────
 
-async function loadSettingsForm() {
-  const { [KEYS.SETTINGS]: s = {} } = await chrome.storage.local.get(KEYS.SETTINGS);
+async function loadSettingsForm(s = null) {
+  if (!s) {
+    const data = await chrome.storage.local.get(KEYS.SETTINGS);
+    s = data[KEYS.SETTINGS] || {};
+  }
   
   setVal('s-hf-token', s.hfToken || '');
   setVal('s-gemini-key', s.geminiKey || '');
   setVal('s-model', s.model || 'whisper-base');
   setVal('s-lang', s.language || 'en');
+  setCheck('s-darkmode', s.darkMode !== false);
   setCheck('s-tone', s.showToneAnalysis !== false);
   setCheck('s-autostart', s.autoStart !== false);
 
@@ -492,10 +507,13 @@ function bindSettings() {
       geminiKey: getVal('s-gemini-key'),
       model: getVal('s-model'),
       language: getVal('s-lang'),
+      darkMode: getCheck('s-darkmode'),
       showToneAnalysis: getCheck('s-tone'),
       autoStart: getCheck('s-autostart'),
       sidebarPosition: document.getElementById('s-pos-r')?.checked ? 'right' : 'left'
     };
+
+    applyTheme(settings.darkMode);
 
     await chrome.storage.local.set({ [KEYS.SETTINGS]: settings });
     
@@ -575,6 +593,14 @@ function getWeekNumber(date) {
 
 function openMeetTab() {
   chrome.tabs.create({ url: 'https://meet.google.com' });
+}
+
+function applyTheme(isDark) {
+  if (isDark) {
+    document.documentElement.classList.remove('light-mode');
+  } else {
+    document.documentElement.classList.add('light-mode');
+  }
 }
 
 // Make functions available globally for inline onclick

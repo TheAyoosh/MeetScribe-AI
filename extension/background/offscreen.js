@@ -7,8 +7,6 @@ let analyser = null;
 let captureStream = null;
 let chunkInterval = null;
 let speakerTracker = null;
-let meetingId = null;
-
 chrome.runtime.onMessage.addListener(async (msg) => {
   if (msg.type === 'START_AUDIO_CAPTURE') {
     await startCapture(msg.tabId, msg.meetingId);
@@ -53,12 +51,7 @@ async function startCapture(tabId, mId) {
     };
 
     mediaRecorder.onstop = async () => {
-      if (chunks.length > 0) {
-        const blob = new Blob(chunks, { type: mimeType });
-        const speakerProfile = speakerTracker.getCurrentSpeaker();
-        await sendChunkForTranscription(blob, speakerProfile);
-        chunks = [];
-      }
+      chunks = [];
     };
 
     mediaRecorder.start();
@@ -91,21 +84,6 @@ function stopCapture() {
   mediaRecorder = null;
   captureStream = null;
   audioContext = null;
-}
-
-async function sendChunkForTranscription(blob, speakerHint) {
-  const arrayBuffer = await blob.arrayBuffer();
-  chrome.runtime.sendMessage({
-    type: 'TRANSCRIBE_CHUNK',
-    audioBlob: arrayBuffer,
-    speakerHint: speakerHint?.id || null,
-    meetingId
-  });
-}
-
-function getSupportedMimeType() {
-  const types = ['audio/webm;codecs=opus', 'audio/webm', 'audio/ogg'];
-  return types.find(t => MediaRecorder.isTypeSupported(t)) || '';
 }
 
 // ─── Speaker Tracker ──────────────────────────────────────────────────────────

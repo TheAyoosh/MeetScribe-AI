@@ -1,6 +1,9 @@
 // MeetScribe - Popup Script
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const { meetscribe_settings: s = {} } = await chrome.storage.local.get('meetscribe_settings');
+  if (s.darkMode === false) document.documentElement.classList.add('light-mode');
+
   await loadStatus();
   await loadRecentMeetings();
   await loadModelStatus();

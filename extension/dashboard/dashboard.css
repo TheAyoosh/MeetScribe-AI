@@ -20,6 +20,23 @@
   --radius: 12px;
 }
 
+:root.light-mode {
+  --bg: #F9FAFB;
+  --bg-2: #FFFFFF;
+  --bg-3: #F3F4F6;
+  --bg-4: #E5E7EB;
+  --border: rgba(0,0,0,0.08);
+  --border-2: rgba(0,0,0,0.15);
+  --accent: #2563EB;
+  --accent-2: #6366F1;
+  --positive: #059669;
+  --negative: #DC2626;
+  --warning: #D97706;
+  --text: #111827;
+  --text-muted: #4B5563;
+  --text-dim: #6B7280;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {

@@ -1,11 +1,37 @@
+
+:root {
+  --bg: #0F1117;
+  --bg-2: #161B27;
+  --bg-3: #1E2535;
+  --bg-4: #2a2e3a;
+  --text: #E8EAF2;
+  --text-muted: #6B7280;
+  --text-dim: #9CA3AF;
+  --border: rgba(255,255,255,0.08);
+  --border-2: rgba(255,255,255,0.06);
+  --border-3: rgba(255,255,255,0.05);
+}
+
+:root.light-mode {
+  --bg: #F9FAFB;
+  --bg-2: #FFFFFF;
+  --bg-3: #F3F4F6;
+  --bg-4: #E5E7EB;
+  --text: #111827;
+  --text-muted: #4B5563;
+  --text-dim: #6B7280;
+  --border: rgba(0,0,0,0.08);
+  --border-2: rgba(0,0,0,0.06);
+  --border-3: rgba(0,0,0,0.05);
+}
 /* MeetScribe - Popup Styles */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   width: 300px;
   min-height: 420px;
-  background: #0F1117;
-  color: #E8EAF2;
+  background: var(--bg);
+  color: var(--text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 13px;
 }
@@ -18,8 +44,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 12px 14px;
-  background: #161B27;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
 }
 
 .pop-logo {
@@ -42,8 +68,8 @@ body {
 
 .pop-version {
   font-size: 10px;
-  color: #6B7280;
-  background: #1E2535;
+  color: var(--text-muted);
+  background: var(--bg-3);
   border-radius: 4px;
   padding: 2px 6px;
 }
@@ -51,8 +77,8 @@ body {
 /* Status Card */
 .pop-status-card {
   margin: 12px;
-  background: #161B27;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px;
   display: flex;
@@ -69,11 +95,11 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: #1E2535;
+  background: var(--bg-3);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6B7280;
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
@@ -81,13 +107,13 @@ body {
 
 .pop-status-info { flex: 1; }
 .pop-status-title { font-weight: 700; font-size: 13px; }
-.pop-status-sub { font-size: 11px; color: #6B7280; margin-top: 2px; }
+.pop-status-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
 
 .pop-status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #2a2e3a;
+  background: var(--bg-4);
   flex-shrink: 0;
 }
 .pop-status-dot.live {
@@ -111,10 +137,10 @@ body {
   justify-content: center;
   gap: 6px;
   padding: 9px;
-  background: #161B27;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  color: #9CA3AF;
+  color: var(--text-dim);
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
@@ -128,21 +154,21 @@ body {
 .pop-section-title {
   font-size: 10px;
   font-weight: 700;
-  color: #6B7280;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.7px;
   margin-bottom: 6px;
 }
 
-.pop-empty { font-size: 11px; color: #4B5563; padding: 8px 0; }
+.pop-empty { font-size: 11px; color: var(--text-muted); padding: 8px 0; }
 
 .pop-meeting-item {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 7px 9px;
-  background: #161B27;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
   border-radius: 8px;
   margin-bottom: 4px;
   cursor: pointer;
@@ -160,7 +186,7 @@ body {
 
 .pop-meeting-info { flex: 1; min-width: 0; }
 .pop-meeting-title { font-size: 11px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pop-meeting-meta { font-size: 10px; color: #6B7280; margin-top: 1px; }
+.pop-meeting-meta { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
 
 /* Models */
 .pop-models {
@@ -175,24 +201,24 @@ body {
   align-items: center;
   gap: 7px;
   font-size: 11px;
-  color: #9CA3AF;
+  color: var(--text-dim);
   padding: 5px 8px;
-  background: #161B27;
+  background: var(--bg-2);
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid var(--border-3);
 }
 
 .pop-model-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #374151;
+  background: var(--bg-4);
   flex-shrink: 0;
 }
 .pop-model-dot.configured { background: #4ECDC4; }
-.pop-model-dot.not-configured { background: #374151; }
+.pop-model-dot.not-configured { background: var(--bg-4); }
 
-.pop-model-state { margin-left: auto; font-size: 10px; color: #4B5563; }
+.pop-model-state { margin-left: auto; font-size: 10px; color: var(--text-muted); }
 .pop-model-item.configured .pop-model-state { color: #4ECDC4; }
 
 /* Footer */
@@ -201,13 +227,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px 10px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--border-2);
 }
 
 .pop-text-btn {
   background: transparent;
   border: none;
-  color: #6B7280;
+  color: var(--text-muted);
   font-size: 11px;
   cursor: pointer;
   padding: 4px 6px;
@@ -215,4 +241,4 @@ body {
   transition: color 0.15s;
   font-family: inherit;
 }
-.pop-text-btn:hover { color: #9CA3AF; }
+.pop-text-btn:hover { color: var(--text-dim); }

@@ -18,6 +18,18 @@
   --ms-font:    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
+#meetscribe-sidebar.light-mode {
+  --ms-bg:      #F9FAFB;
+  --ms-bg2:     #FFFFFF;
+  --ms-bg3:     #F3F4F6;
+  --ms-bg4:     #E5E7EB;
+  --ms-border:  rgba(0,0,0,0.08);
+  --ms-border2: rgba(0,0,0,0.12);
+  --ms-text:    #111827;
+  --ms-muted:   #6B7280;
+  --ms-dim:     #4B5563;
+}
+
 #meetscribe-sidebar *, #meetscribe-sidebar *::before, #meetscribe-sidebar *::after {
   box-sizing: border-box; margin: 0; padding: 0;
 }
