@@ -1,33 +1,33 @@
 /* MeetScribe — Sidebar. Professional. No emoji. GPU-optimised. */
 
 :root {
-  --ms-bg:      #0D1117;
-  --ms-bg2:     #151B26;
-  --ms-bg3:     #1C2333;
-  --ms-bg4:     #212D40;
-  --ms-border:  rgba(255,255,255,0.07);
-  --ms-border2: rgba(255,255,255,0.12);
-  --ms-accent:  #4A9EFF;
-  --ms-text:    #DDE1EC;
-  --ms-muted:   #5E6878;
-  --ms-dim:     #8B95A8;
-  --ms-pos:     #3DB89A;
-  --ms-neg:     #E05C5C;
-  --ms-warn:    #D4A843;
-  --ms-w:       340px;
-  --ms-font:    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --ms-bg:      #09090b;
+  --ms-bg2:     #121214;
+  --ms-bg3:     #1c1c1f;
+  --ms-bg4:     #27272a;
+  --ms-border:  rgba(255,255,255,0.06);
+  --ms-border2: rgba(255,255,255,0.1);
+  --ms-accent:  #6366f1;
+  --ms-text:    #fafafa;
+  --ms-muted:   #a1a1aa;
+  --ms-dim:     #d4d4d8;
+  --ms-pos:     #10b981;
+  --ms-neg:     #f43f5e;
+  --ms-warn:    #f59e0b;
+  --ms-w:       360px;
+  --ms-font:    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 #meetscribe-sidebar.light-mode {
-  --ms-bg:      #F9FAFB;
-  --ms-bg2:     #FFFFFF;
-  --ms-bg3:     #F3F4F6;
-  --ms-bg4:     #E5E7EB;
-  --ms-border:  rgba(0,0,0,0.08);
+  --ms-bg:      #f8fafc;
+  --ms-bg2:     #ffffff;
+  --ms-bg3:     #f1f5f9;
+  --ms-bg4:     #e2e8f0;
+  --ms-border:  rgba(0,0,0,0.06);
   --ms-border2: rgba(0,0,0,0.12);
-  --ms-text:    #111827;
-  --ms-muted:   #6B7280;
-  --ms-dim:     #4B5563;
+  --ms-text:    #0f172a;
+  --ms-muted:   #64748b;
+  --ms-dim:     #475569;
 }
 
 #meetscribe-sidebar *, #meetscribe-sidebar *::before, #meetscribe-sidebar *::after {
@@ -155,12 +155,17 @@
   cursor: pointer; white-space: nowrap;
   transition: opacity 0.12s, transform 0.1s;
 }
-.ms-btn-primary { background: var(--ms-accent); color: #fff; flex-shrink: 0; min-width: 64px; }
-.ms-btn-primary:hover  { opacity: 0.87; }
-.ms-btn-primary:active { transform: scale(0.97); }
-.ms-btn-primary.ms-recording { background: var(--ms-neg); }
-.ms-btn-outline { background: transparent; border: 1px solid var(--ms-border2); color: var(--ms-dim); flex: 1; }
-.ms-btn-outline:hover  { border-color: var(--ms-accent); color: var(--ms-accent); }
+.ms-btn-primary { 
+  background: linear-gradient(135deg, #6366F1, #A855F7); 
+  color: #fff; flex-shrink: 0; min-width: 64px; 
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ms-btn-primary:hover  { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6); }
+.ms-btn-primary:active { transform: scale(0.95); }
+.ms-btn-primary.ms-recording { background: linear-gradient(135deg, #F43F5E, #E11D48); box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4); }
+.ms-btn-outline { background: transparent; border: 1px solid var(--ms-border2); color: var(--ms-dim); flex: 1; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);}
+.ms-btn-outline:hover  { border-color: var(--ms-accent); color: var(--ms-accent); transform: translateY(-1px); background: rgba(99, 102, 241, 0.05); }
 .ms-btn-outline:active { transform: scale(0.97); }
 
 .ms-search {
@@ -194,12 +199,14 @@
 
 /* Entry — contain:content, no transition for instant paint */
 .ms-entry {
-  padding: 7px 11px 8px; border-bottom: 1px solid var(--ms-border);
-  border-left: 2px solid var(--speaker-color, var(--ms-accent));
+  padding: 12px 16px; 
+  border-bottom: 1px solid var(--ms-border);
+  border-left: 3px solid var(--speaker-color, var(--ms-accent));
   contain: content;
+  transition: background 0.25s ease, padding-left 0.25s ease;
 }
 .ms-entry:last-child { border-bottom: none; }
-.ms-entry:hover      { background: var(--ms-bg2); }
+.ms-entry:hover      { background: var(--ms-bg2); padding-left: 20px; }
 
 /* Interim entry */
 .ms-entry-interim {

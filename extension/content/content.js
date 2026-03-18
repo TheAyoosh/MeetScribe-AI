@@ -956,9 +956,7 @@
   // ── Init ──────────────────────────────────────────────────────────────────
   function init() {
     injectScript('content/audio-interceptor.js');
-    injectScript('content/alert-engine.js', () => {
-      if (window.__MeetScribeAlerts) window.__MeetScribeAlerts.init();
-    });
+    if (window.__MeetScribeAlerts) window.__MeetScribeAlerts.init();
     injectSidebar();
     createSpeaker('You');
     setTimeout(() => {

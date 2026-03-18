@@ -28,7 +28,7 @@
         "https://zoom.us/*",
         "https://teams.microsoft.com/*"
       ],
-      "js": ["content/content.js"],
+      "js": ["content/alert-engine.js", "content/content.js"],
       "css": ["content/sidebar.css"],
       "run_at": "document_end"
     }
