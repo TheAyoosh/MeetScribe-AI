@@ -9,10 +9,10 @@ Welcome to the MeetScribe AI documentation page. This document tracks the contri
 | Name | Role | Primary Responsibilities |
 | :--- | :--- | :--- |
 | Abhiraj | Team Lead and Developer | AI integration.HuggingFace Inference integration & Gemini 1.5 logic. |
-| **[Ayush kumar]** | **Test lead and git hub management** | Popup UI, settings management, and dashboard implementation. |
-| **[Chethana SB]** | **Developer and git hub management** |Core extension logic, sidebar design  |
-| **[Garvit singh]** | **Development lead** | Testing for cross-platform support (Zoom/Teams)  |
-| **[Aditya raj]** | **Customer Contact lead** | Customer approches through survey and forms |
+| Ayush kumar | Test lead and git hub management | Popup UI, settings management, and dashboard implementation. |
+| Chethana SB | Developer and git hub management | Core extension logic, sidebar design |
+| Garvit singh | Development lead | Testing for cross-platform support (Zoom/Teams) |
+| Aditya raj | Customer Contact lead | Customer approches through survey and forms |
 | Hardik jha | testing and devops | Testing for cross-platform support (Zoom/Teams) & deployment. |
 ---
 
