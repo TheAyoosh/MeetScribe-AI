@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "MeetScribe AI",
-  "version": "1.0.0",
-  "description": "Real-time meeting transcription, speaker diarization & tone analysis powered by open-source AI",
+  "version": "1.0.1",
+  "description": "Real-time meeting transcription, speaker diarization & tone analysis powered by open-source AI models",
   "permissions": [
     "activeTab",
     "storage",
