@@ -1,5 +1,6 @@
 // MeetScribe - Offscreen Document
 // Handles tab audio capture + audio chunking for transcription
+// Author: Chethana SB
 
 let mediaRecorder = null;
 let audioContext = null;
@@ -56,7 +57,7 @@ async function startCapture(tabId, mId) {
 
     mediaRecorder.start();
 
-    // Chunk every 3 seconds for low-latency transcription
+    // Chunk every 3 seconds for low-latency transcription (balance between accuracy and speed)
     chunkInterval = setInterval(() => {
       if (mediaRecorder.state === 'recording') {
         mediaRecorder.stop();

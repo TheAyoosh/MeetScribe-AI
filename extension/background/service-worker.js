@@ -1,5 +1,6 @@
 // MeetScribe AI - Service Worker
 // Handles: tab audio capture, Whisper/Parakeet transcription, speaker diarization, storage
+// Author: Chethana SB
 
 const STORAGE_KEYS = {
   MEETINGS: 'meetscribe_meetings',
@@ -300,7 +301,7 @@ async function saveMeetingData(meeting) {
   if (idx >= 0) meetings[idx] = meeting;
   else meetings.unshift(meeting);
   
-  // Keep last 50 meetings
+  // Keep last 50 meetings to limit local storage usage
   const trimmed = meetings.slice(0, 50);
   await chrome.storage.local.set({ [STORAGE_KEYS.MEETINGS]: trimmed });
 }
