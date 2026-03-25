@@ -29,14 +29,14 @@ Team leads, project managers, and anyone who regularly sits through browser-base
 
 ## What It Does
 
-- 🎙️ **Captures** browser tab audio without interrupting the meeting
-- 📝 **Transcribes** speech in real time via HuggingFace Whisper
-- 👤 **Labels** speakers automatically (diarization)
-- 🎭 **Analyzes** tone and sentiment per speaker using Gemini 1.5 Flash
-- 📋 **Generates** a structured post-meeting summary (decisions, action items, open questions)
-- ✅ **Extracts** action items with assignees and due-date hints
-- 💾 **Saves** all transcripts locally in the browser
-- 📤 **Exports** transcripts in Markdown, JSON, SRT, and TXT
+- **Captures** browser tab audio without interrupting the meeting
+- **Transcribes** speech in real time via HuggingFace Whisper
+- **Labels** speakers automatically (diarization)
+- **Analyzes** tone and sentiment per speaker using Gemini 1.5 Flash
+- **Generates** a structured post-meeting summary (decisions, action items, open questions)
+- **Extracts** action items with assignees and due-date hints
+- **Saves** all transcripts locally in the browser
+- **Exports** transcripts in Markdown, JSON, SRT, and TXT
 
 ---
 
