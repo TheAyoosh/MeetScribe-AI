@@ -1,176 +1,12 @@
-# 📄 Team Contributions & Documents
+# Product Requirements Specification (PRS)
 
-Welcome to the MeetScribe AI documentation page. This document tracks the contributions of each team member and links to key design and implementation details.
-
----
-
-## 👥 Team Members
-
-| Name | Role | Primary Responsibilities |
-| :--- | :--- | :--- |
-| Abhiraj | Team Lead and Developer | AI integration.HuggingFace Inference integration & Gemini 1.5 logic. |
-| Ayush kumar | Test lead and git hub management | Popup UI, settings management, and dashboard implementation. |
-| Chethana SB | Developer and git hub management | Core extension logic, sidebar design |
-| Garvit singh | Development lead | Testing for cross-platform support (Zoom/Teams) |
-| Aditya raj | Customer Contact lead | Customer approches through survey and forms |
-| Hardik jha | testing and devops | Testing for cross-platform support (Zoom/Teams) & deployment. |
----
-
-## 📝 Document Ownership
-
-### 1. **Core Extension Implementation**
-*   **Managed By**: Chethana SB
-*   **Focus**: `manifest.json`, `service-worker.js`, and `offscreen.js`.
-*   **Key Achievement**: Successfully implemented the foundational extension structure and core logic.
-
-### 2. **AI Logic & Integration**
-*   **Managed By**: Abhiraj
-*   **Focus**: Transcription engines and tone analysis processors.
-*   **Key Achievement**: Integrated HuggingFace Inference with Whisper for real-time transcription and Gemini 1.5 for analysis.
-
-### 3. **UI/UX & Interactive Dashboard**
-*   **Managed By**: Ayush kumar
-*   **Focus**: `popup`, `dashboard`, and settings management.
-*   **Key Achievement**: Developed the user-facing interface and settings configuration system.
-
-### 4. **Testing & DevOps**
-*   **Managed By**: Hardik jha & Garvit singh
-*   **Focus**: Cross-platform compatibility and deployment pipelines.
-*   **Key Achievement**: Ensured stable performance across Google Meet and Zoom environments.
-
-### 5. **User Research & Feedback**
-*   **Managed By**: Aditya raj
-*   **Focus**: Customer surveys and feedback loops.
-*   **Key Achievement**: Conducted the Meeting Efficiency and AI Integration Survey with 28 valid participants. Full results below.
+**Project:** MeetScribe AI
+**Version:** 1.0
+**Last Updated:** 2026-03-25
 
 ---
 
-## Customer Survey Results
-
-**Meeting Efficiency and AI Integration Survey**
-Total Respondents: 28
-
----
-
-### Q1. How often do your meetings drift away from the set agenda?
-
-```mermaid
-pie title Meeting Agenda Drift
-    "Constantly" : 7
-    "Occasionally" : 15
-    "Rarely" : 6
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| Constantly | 7 | 25% |
-| Occasionally | 15 | 53.57% |
-| Rarely | 6 | 21.43% |
-| **Valid Count** | **28** | |
-
----
-
-### Q2. Would a real-time participation map help involve silent team members?
-
-```mermaid
-pie title Participation Map Usefulness
-    "Yes, definitely" : 22
-    "No, it's a distraction" : 3
-    "Maybe" : 3
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| Yes, definitely | 22 | 78.57% |
-| No, it's a distraction | 3 | 10.71% |
-| Maybe | 3 | 10.71% |
-| **Valid Count** | **28** | |
-
----
-
-### Q3. What percentage of verbal action items usually get forgotten or lost?
-
-```mermaid
-pie title Verbal Action Items Lost
-    "Over 50%" : 15
-    "Around 20%" : 10
-    "Almost none" : 3
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| Over 50% | 15 | 53.57% |
-| Around 20% | 10 | 35.71% |
-| Almost none | 3 | 10.71% |
-| **Valid Count** | **28** | |
-
----
-
-### Q4. How should an AI handle disrespectful language in a live meeting?
-
-```mermaid
-pie title AI Handling of Disrespectful Language
-    "Public real-time nudge" : 6
-    "Private warning to the user" : 16
-    "Hidden log for the post-meeting report" : 6
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| Public real-time nudge | 6 | 21.43% |
-| Private warning to the user | 16 | 57.14% |
-| Hidden log for the post-meeting report | 6 | 21.43% |
-| **Valid Count** | **28** | |
-
----
-
-### Q5. How much time do you spend manually updating JIRA or Trello after a call?
-
-```mermaid
-pie title Manual Update Time Post-Call
-    "15 minutes" : 8
-    "5-10 minutes" : 16
-    "Under 5 minutes" : 4
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| 15 minutes | 8 | 28.57% |
-| 5-10 minutes | 16 | 57.14% |
-| Under 5 minutes | 4 | 14.29% |
-| **Valid Count** | **28** | |
-
----
-
-### Q6. What is your primary concern with using a real-time AI monitor?
-
-```mermaid
-pie title Primary Concern with AI Monitor
-    "Data privacy/Security" : 18
-    "AI accuracy/False flags" : 10
-    "It might feel like policing the team" : 0
-```
-
-| Answer Choices | Responses | Percentage |
-|---|---|---|
-| Data privacy/Security | 18 | 64.29% |
-| AI accuracy/False flags | 10 | 35.71% |
-| It might feel like policing the team | 0 | 0% |
-| **Valid Count** | **28** | |
-
----
-
-### Q7. Additional thoughts on AI integration in meetings
-
-Open-ended responses — detailed data available separately.
-
----
-
-## Product Requirements Specification (PRS)
-
----
-
-### 1. Product Vision & Intent
+## 1. Product Vision & Intent
 
 People leaving meetings without a clear record of what was said or decided is a real, everyday problem. Over 53% of verbal action items get forgotten entirely (our own survey, 28 respondents), and professionals are spending 5–15 minutes after every call manually updating JIRA or Trello.
 
@@ -184,7 +20,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 2. Scope Definition
+## 2. Scope Definition
 
 **What MeetScribe AI does (Day 1):**
 - Captures browser tab audio without interrupting the meeting
@@ -206,16 +42,16 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 3. Functional Requirements
+## 3. Functional Requirements
 
-#### 3.1 What Users Can Do
+### 3.1 What Users Can Do
 - Start and stop recording from the sidebar
 - Watch the transcript and speaker labels update live
 - Browse, rename, and delete past meeting records
 - Export any transcript in their preferred format
 - Re-trigger a summary generation at any time
 
-#### 3.2 What the System Does Automatically
+### 3.2 What the System Does Automatically
 - Detects meeting URLs and injects the sidebar
 - Chunks audio every 3 seconds and sends it to Whisper
 - Labels each segment by speaker
@@ -223,7 +59,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 - Auto-generates a summary the moment recording stops
 - Saves everything locally — no action needed from the user
 
-#### 3.3 Core Workflow
+### 3.3 Core Workflow
 
 1. User opens Google Meet / Zoom / Teams in Chrome
 2. Sidebar appears automatically
@@ -236,21 +72,21 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 **If the API goes down:** Raw transcript is preserved locally, a friendly error appears, and nothing crashes.
 **If permission is denied:** Recording doesn't start and the user gets a clear explanation of what to allow.
 
-#### 3.4 Business Rules
+### 3.4 Business Rules
 - Recording only works on supported platforms (Meet, Zoom, Teams web)
 - Tab capture permission required before any audio is processed
 - Summary runs only after recording stops — never mid-session
 - No audio or transcript data ever leaves for a MeetScribe server
 - Partial transcripts are auto-saved if a tab closes mid-meeting
 
-#### 3.5 Limits
+### 3.5 Limits
 - 3-second audio chunks (optimized for latency vs. API cost)
 - Diarization works well for up to 4 concurrent speakers
 - Chrome storage quota applies (~10 MB per transcript)
 - Chrome only — no other browsers in v1
 - API keys live in `chrome.storage.local`, never touched by page scripts
 
-#### 3.6 Acceptance Criteria
+### 3.6 Acceptance Criteria
 - Sidebar appears within 2 seconds of joining a supported meeting
 - First transcript chunk appears within 5 seconds of hitting record
 - Summary ready within 10 seconds of stopping a 10-minute session
@@ -259,7 +95,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 4. Non-Functional Requirements
+## 4. Non-Functional Requirements
 
 **Performance:** Audio-to-text in ≤5 seconds (P95). Sidebar loads in ≤2 seconds. Less than 5% added CPU load on the tab.
 
@@ -273,7 +109,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 5. Data & Integrations
+## 5. Data & Integrations
 
 **Entities:** Meeting, TranscriptSegment, Speaker, ActionItem, MeetingSummary
 
@@ -288,7 +124,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 6. UX & Accessibility
+## 6. UX & Accessibility
 
 - Sidebar is collapsible and must not block video tiles or platform controls
 - Supports Google Meet, Zoom web, and Microsoft Teams web
@@ -299,7 +135,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 7. What We're Measuring
+## 7. What We're Measuring
 
 | Metric | Goal |
 |---|---|
@@ -312,7 +148,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 8. Risks & Assumptions
+## 8. Risks & Assumptions
 
 | | |
 |---|---|
@@ -325,7 +161,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-### 9. Release Checklist
+## 9. Release Checklist
 
 - [ ] Sidebar injection works on Meet, Zoom, and Teams
 - [ ] Record/stop flow passes on all three platforms
@@ -338,13 +174,6 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 - [ ] Dark mode verified on all platforms
 - [ ] WCAG 2.1 AA contrast check passed
 
-## Internal Links
-
-*   **[API Configuration Guide](./docs/API_CONFIG.md)**: Steps to obtain keys.
-*   **[Style Guide](./docs/STYLE_GUIDE.md)**: UI/UX design tokens and CSS patterns.
-*   **[Testing Protocol](./docs/TESTING.md)**: Manual and automated test cases.
-
 ---
 
-*Last Updated: 2026-03-25 — PRS completed for MeetScribe AI*
-
+*Last Updated: 2026-03-25 — PRS v1.0 completed for MeetScribe AI*
