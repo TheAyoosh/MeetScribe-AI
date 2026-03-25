@@ -52,11 +52,11 @@ Team leads, project managers, and anyone who regularly sits through browser-base
 
 | Name | SRN | Role |
 |---|---|---|
-| Abhiraj | R23EF009 | Team Lead & AI Integration |
-| Ayush Kumar | R23EF042 | UI/UX & Dashboard |
-| Chethana SB | R23EF056 | Core Extension Implementation |
-| Garvit Singh | R23EF081 | Cross-Platform Testing |
-| Aditya Raj | R23EF004 | Customer Research |
+| Abhiraj | R23EF009 | Team Lead & Developer|
+| Ayush Kumar | R23EF042 | Test Lead & GitHub Management|
+| Chethana SB | R23EF056 | Developer & GitHub Management|
+| Garvit Singh | R23EF081 | Developer |
+| Aditya Raj | R23EF004 | Customer Contact Lead|
 | Hardik Jha | R23EF088 | Testing & DevOps |
 
 ---
