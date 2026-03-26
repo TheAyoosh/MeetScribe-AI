@@ -12,9 +12,20 @@
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 ![alt text](image-6.png)
+
+
+### Chiranth's Survey Conclusion
+The survey results effectively validate MeetScribe-AI's core value proposition, proving that users heavily struggle with lost action items and have a high demand for real-time participation tools. Furthermore, the prominent user concerns regarding data security firmly justify our strict focus on a 100% local storage architecture.
+
 ![alt text](image-7.png)
 ![alt text](image-8.png)
-## Survey Results
+
+### Bheeshma's Survey Conclusion
+*(Survey currently pending)*  
+Anticipating further data to cross-reference our findings and finalize the validation of our UX design and real-time nudging features. We will update this section once the survey is concluded.
+
+
+## Survey Results 
 
 ### Q1. How often do your meetings drift away from the set agenda?
 
@@ -141,8 +152,7 @@ Open-ended responses — detailed data available separately.
 
 ## Team Member Individual Survey Conclusions
 
-### Chiranth's Survey Conclusion
-The survey results effectively validate MeetScribe-AI's core value proposition, proving that users heavily struggle with lost action items and have a high demand for real-time participation tools. Furthermore, the prominent user concerns regarding data security firmly justify our strict focus on a 100% local storage architecture.
+
 
 ### Bheeshma's Survey Conclusion
 *(Survey currently pending)*  
