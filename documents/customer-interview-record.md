@@ -5,6 +5,11 @@
 **Total Respondents:** 40 Valid Participants
 
 ---
+**Survey Recording / Context:** [View Video on Google Drive](https://drive.google.com/file/d/19pejHedjyjfhPJNes5HlKmjBiOadFhPO/view?usp=drivesdk)
+
+**Video Conclusion Summary:**
+The recorded interview provides crucial qualitative context that strongly reinforces our broader survey metrics by demonstrating the tangible frustration caused by meeting agenda drift. It solidifies the participant's explicit desire for automated, real-time action-item extraction to prevent lost tasks. Furthermore, the discussion firmly confirms that a 100% local, privacy-first AI architecture is a strict necessity for user adoption.
+
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
