@@ -2,7 +2,7 @@
 
 **Survey Title:** Meeting Efficiency and AI Integration Survey
 **Managed By:** Aditya Raj (Customer Contact Lead)
-**Total Respondents:** 28 Valid Participants
+**Total Respondents:** 40 Valid Participants
 
 ---
 
@@ -12,17 +12,17 @@
 
 ```mermaid
 pie title Meeting Agenda Drift
-    "Constantly" : 7
-    "Occasionally" : 15
-    "Rarely" : 6
+    "Constantly" : 11
+    "Occasionally" : 21
+    "Rarely" : 8
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| Constantly | 7 | 25% |
-| Occasionally | 15 | 53.57% |
-| Rarely | 6 | 21.43% |
-| **Valid Count** | **28** | |
+| Constantly | 11 | 27.5% |
+| Occasionally | 21 | 52.5% |
+| Rarely | 8 | 20% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -30,17 +30,17 @@ pie title Meeting Agenda Drift
 
 ```mermaid
 pie title Participation Map Usefulness
-    "Yes, definitely" : 22
-    "No, it's a distraction" : 3
-    "Maybe" : 3
+    "Yes, definitely" : 29
+    "No, it's a distraction" : 5
+    "Maybe" : 6
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| Yes, definitely | 22 | 78.57% |
-| No, it's a distraction | 3 | 10.71% |
-| Maybe | 3 | 10.71% |
-| **Valid Count** | **28** | |
+| Yes, definitely | 29 | 72.5% |
+| No, it's a distraction | 5 | 12.5% |
+| Maybe | 6 | 15% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -48,17 +48,17 @@ pie title Participation Map Usefulness
 
 ```mermaid
 pie title Verbal Action Items Lost
-    "Over 50%" : 15
-    "Around 20%" : 10
-    "Almost none" : 3
+    "Over 50%" : 20
+    "Around 20%" : 13
+    "Almost none" : 7
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| Over 50% | 15 | 53.57% |
-| Around 20% | 10 | 35.71% |
-| Almost none | 3 | 10.71% |
-| **Valid Count** | **28** | |
+| Over 50% | 20 | 50% |
+| Around 20% | 13 | 32.5% |
+| Almost none | 7 | 17.5% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -66,17 +66,17 @@ pie title Verbal Action Items Lost
 
 ```mermaid
 pie title AI Handling of Disrespectful Language
-    "Public real-time nudge" : 6
-    "Private warning to the user" : 16
-    "Hidden log for the post-meeting report" : 6
+    "Public real-time nudge" : 10
+    "Private warning to the user" : 22
+    "Hidden log for the post-meeting report" : 8
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| Public real-time nudge | 6 | 21.43% |
-| Private warning to the user | 16 | 57.14% |
-| Hidden log for the post-meeting report | 6 | 21.43% |
-| **Valid Count** | **28** | |
+| Public real-time nudge | 10 | 25% |
+| Private warning to the user | 22 | 55% |
+| Hidden log for the post-meeting report | 8 | 20% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -84,17 +84,17 @@ pie title AI Handling of Disrespectful Language
 
 ```mermaid
 pie title Manual Update Time Post-Call
-    "15 minutes" : 8
-    "5-10 minutes" : 16
-    "Under 5 minutes" : 4
+    "15 minutes" : 13
+    "5-10 minutes" : 19
+    "Under 5 minutes" : 8
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| 15 minutes | 8 | 28.57% |
-| 5-10 minutes | 16 | 57.14% |
-| Under 5 minutes | 4 | 14.29% |
-| **Valid Count** | **28** | |
+| 15 minutes | 13 | 32.5% |
+| 5-10 minutes | 19 | 47.5% |
+| Under 5 minutes | 8 | 20% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -102,17 +102,17 @@ pie title Manual Update Time Post-Call
 
 ```mermaid
 pie title Primary Concern with AI Monitor
-    "Data privacy/Security" : 18
-    "AI accuracy/False flags" : 10
-    "It might feel like policing the team" : 0
+    "Data privacy/Security" : 22
+    "AI accuracy/False flags" : 13
+    "It might feel like policing the team" : 5
 ```
 
 | Answer Choices | Responses | Percentage |
 |---|---|---|
-| Data privacy/Security | 18 | 64.29% |
-| AI accuracy/False flags | 10 | 35.71% |
-| It might feel like policing the team | 0 | 0% |
-| **Valid Count** | **28** | |
+| Data privacy/Security | 22 | 55% |
+| AI accuracy/False flags | 13 | 32.5% |
+| It might feel like policing the team | 5 | 12.5% |
+| **Valid Count** | **40** | |
 
 ---
 
@@ -124,11 +124,11 @@ Open-ended responses — detailed data available separately.
 
 ## Key Takeaways
 
-- **78.57%** want real-time participation maps → validates speaker diarization feature
-- **53.57%** lose over half their verbal action items → validates auto action-item extraction
-- **64.29%** are most concerned about privacy → drives our 100% local storage architecture
-- **57.14%** prefer private AI warnings → informs our tone analysis UX design
+- **72.5%** want real-time participation maps → validates speaker diarization feature
+- **50%** lose over half their verbal action items → validates auto action-item extraction
+- **55%** are most concerned about privacy → drives our 100% local storage architecture
+- **55%** prefer private AI warnings → informs our tone analysis UX design
 
 ---
 
-*Last Updated: 2026-03-25 — Week 1 survey completed*
+*Last Updated: 2026-03-26 — Survey expanded to 40 participants*

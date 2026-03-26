@@ -4,7 +4,7 @@
 
 ## Product Vision
 
-People leaving meetings without a clear record of what was said or decided is a real, everyday problem. Over 53% of verbal action items get forgotten entirely (our own survey, 28 respondents), and professionals are spending 5–15 minutes after every call manually updating JIRA or Trello.
+People leaving meetings without a clear record of what was said or decided is a real, everyday problem. Over 50% of verbal action items get forgotten entirely (our own survey, 40 respondents), and professionals are spending 5–15 minutes after every call manually updating JIRA or Trello.
 
 **MeetScribe AI** exists to fix that. It quietly sits in your browser during a meeting, transcribes everything in real time, picks out action items, and hands you a clean summary the moment the call ends — no effort required.
 
@@ -20,8 +20,8 @@ Team leads, project managers, and anyone who regularly sits through browser-base
 
 | Problem | MeetScribe AI Solution |
 |---|---|
-| Verbal action items get forgotten (53%+) | Auto-extracts & saves every action item |
-| 5–15 min manually updating JIRA/Trello | Auto-generates structured summaries |
+| Verbal action items get forgotten (50%) | Auto-extracts & saves every action item |
+| 15+ min manually updating JIRA/Trello (32.5%) | Auto-generates structured summaries |
 | No record of who said what | Real-time transcription + speaker diarization |
 | Privacy concerns about AI monitoring | 100% local — no data leaves your device |
 
@@ -61,4 +61,4 @@ Team leads, project managers, and anyone who regularly sits through browser-base
 
 ---
 
-*Last Updated: 2026-03-25*
+*Last Updated: 2026-03-26*

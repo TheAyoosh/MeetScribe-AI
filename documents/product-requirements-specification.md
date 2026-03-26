@@ -2,13 +2,13 @@
 
 **Project:** MeetScribe AI
 **Version:** 1.0
-**Last Updated:** 2026-03-25
+**Last Updated:** 2026-03-26
 
 ---
 
 ## 1. Product Vision & Intent
 
-People leaving meetings without a clear record of what was said or decided is a real, everyday problem. Over 53% of verbal action items get forgotten entirely (our own survey, 28 respondents), and professionals are spending 5–15 minutes after every call manually updating JIRA or Trello.
+People leaving meetings without a clear record of what was said or decided is a real, everyday problem. Over 50% of verbal action items get forgotten entirely (our own survey, 40 respondents), and professionals are spending 5–15 minutes after every call manually updating JIRA or Trello.
 
 MeetScribe AI exists to fix that. It quietly sits in your browser during a meeting, transcribes everything in real time, picks out action items, and hands you a clean summary the moment the call ends — no effort required.
 
@@ -103,7 +103,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 **Reliability:** Offline-safe — transcript viewing, deleting, and exporting work without internet. AI features degrade gracefully with an error banner if APIs are unreachable.
 
-**Security & Privacy:** Audio goes directly to HuggingFace and Gemini over HTTPS. Nothing is stored server-side. API keys are isolated in the service worker. Transcripts stay on the user's device until they delete them. Our survey confirmed 64.29% of users are most worried about privacy — this architecture was built with that in mind.
+**Security & Privacy:** Audio goes directly to HuggingFace and Gemini over HTTPS. Nothing is stored server-side. API keys are isolated in the service worker. Transcripts stay on the user's device until they delete them. Our survey confirmed 55% of users are most worried about privacy — this architecture was built with that in mind.
 
 **Extensibility:** Adding a new meeting platform = one new content script. Swapping the AI model = one new adapter. Adding an export format = one new formatter module.
 
@@ -155,7 +155,7 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 | **Assumes** | HuggingFace and Gemini free tiers stay stable under normal usage |
 | **Risk** | Chrome MV3 API changes could require offscreen/tabCapture adapter updates |
 | **Risk** | Meet / Zoom / Teams DOM updates could break sidebar injection |
-| **Risk** | Privacy concerns (64.29% of users) may slow adoption without clear in-app transparency |
+| **Risk** | Privacy concerns (55% of users) may slow adoption without clear in-app transparency |
 | **Risk** | Diarization quality degrades with 5+ simultaneous speakers |
 | **Depends on** | Chrome v120+ |
 
@@ -176,4 +176,4 @@ MeetScribe AI exists to fix that. It quietly sits in your browser during a meeti
 
 ---
 
-*Last Updated: 2026-03-25 — PRS v1.0 completed for MeetScribe AI*
+*Last Updated: 2026-03-26 — PRS v1.0 completed for MeetScribe AI*
