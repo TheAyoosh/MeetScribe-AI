@@ -159,13 +159,6 @@ Open-ended responses — detailed data available separately.
 
 ---
 
-## Team Member Individual Survey Conclusions
-
-
-
-### Bheeshma's Survey Conclusion
-*(Survey currently pending)*  
-Anticipating further data to cross-reference our findings and finalize the validation of our UX design and real-time nudging features. We will update this section once the survey is concluded.
 
 ---
 
