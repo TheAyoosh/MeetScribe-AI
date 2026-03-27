@@ -33,6 +33,16 @@ The survey results effectively validate MeetScribe-AI's core value proposition, 
 From this interview, we observed that while teams use tools like Azure DevOps, the actual capture of action items is inconsistent and often manual. Also, meeting inefficiencies are not eliminated but handled later through follow-ups, indicating a gap in real-time support
 
 
+<img src="image-9.jpg" width="600">
+<img src="image-10.jpg" width="600">
+<img src="image-11.jpg" width="600">
+<img src="image-12.jpg" width="600">
+
+
+### Divyansh Maheshwari's Survey Conclusion
+The interview with Divyansh highlights that even in well-structured teams, meeting inefficiencies consume about an hour per week. His responses suggest that while some teams stay on track, there is still a reliance on manual tools like Jira and notes apps, which could be streamlined with real-time AI integration.
+
+
 ## Survey Results 
 https://surveymars.com/q/7sOHKogeW
 
