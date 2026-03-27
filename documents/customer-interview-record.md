@@ -22,12 +22,15 @@ The recorded interview provides crucial qualitative context that strongly reinfo
 ### Chiranth's Survey Conclusion
 The survey results effectively validate MeetScribe-AI's core value proposition, proving that users heavily struggle with lost action items and have a high demand for real-time participation tools. Furthermore, the prominent user concerns regarding data security firmly justify our strict focus on a 100% local storage architecture.
 
+<img width="1006" height="674" alt="image" src="https://github.com/user-attachments/assets/2a23c415-033d-4e33-8f96-16f0224b345b" />
+
+
 ![alt text](image-7.png)
 ![alt text](image-8.png)
 
+
 ### Bheeshma's Survey Conclusion
-*(Survey currently pending)*  
-Anticipating further data to cross-reference our findings and finalize the validation of our UX design and real-time nudging features. We will update this section once the survey is concluded.
+From this interview, we observed that while teams use tools like Azure DevOps, the actual capture of action items is inconsistent and often manual. Also, meeting inefficiencies are not eliminated but handled later through follow-ups, indicating a gap in real-time support
 
 
 ## Survey Results 
