@@ -10,23 +10,23 @@
 **Video Conclusion Summary:**
 The recorded interview provides crucial qualitative context that strongly reinforces our broader survey metrics by demonstrating the tangible frustration caused by meeting agenda drift. It solidifies the participant's explicit desire for automated, real-time action-item extraction to prevent lost tasks. Furthermore, the discussion firmly confirms that a 100% local, privacy-first AI architecture is a strict necessity for user adoption.
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-6.png)
+<img src="image.png" width="600">
+<img src="image-1.png" width="600">
+<img src="image-2.png" width="600">
+<img src="image-3.png" width="600">
+<img src="image-4.png" width="600">
+<img src="image-5.png" width="600">
+<img src="image-6.png" width="600">
 
 
 ### Chiranth's Survey Conclusion
 The survey results effectively validate MeetScribe-AI's core value proposition, proving that users heavily struggle with lost action items and have a high demand for real-time participation tools. Furthermore, the prominent user concerns regarding data security firmly justify our strict focus on a 100% local storage architecture.
 
-<img width="1006" height="674" alt="image" src="https://github.com/user-attachments/assets/2a23c415-033d-4e33-8f96-16f0224b345b" />
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/2a23c415-033d-4e33-8f96-16f0224b345b" />
 
 
-![alt text](image-7.png)
-![alt text](image-8.png)
+<img src="image-7.png" width="600">
+<img src="image-8.png" width="600">
 
 
 ### Bheeshma's Survey Conclusion
