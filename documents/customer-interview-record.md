@@ -43,6 +43,17 @@ From this interview, we observed that while teams use tools like Azure DevOps, t
 The interview with Divyansh highlights that even in well-structured teams, meeting inefficiencies consume about an hour per week. His responses suggest that while some teams stay on track, there is still a reliance on manual tools like Jira and notes apps, which could be streamlined with real-time AI integration.
 
 
+<img src="image-13.jpg" width="600">
+<img src="image-14.jpg" width="600">
+<img src="image-15.jpg" width="600">
+<img src="image-16.jpg" width="600">
+<img src="image-17.jpg" width="600">
+
+
+### Piyush Chakarborthy's Survey Conclusion
+Piyush's interview reveals that informal and unscheduled meetings are highly prone to drifting off-track. As someone working in the data field, he emphasizes the complexity of technical debugging sessions, which can last up to 3 hours. His experience underscores the need for better meeting management and the potential for AI to assist in tracking updates across daily stand-ups and technical discussions.
+
+
 ## Survey Results 
 https://surveymars.com/q/7sOHKogeW
 
